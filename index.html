@@ -1,37 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio • Zubair Ahmed Shaik</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; color: #333; }
-    header { text-align: center; }
-    h1 { color: #0066cc; }
-    .projects { margin-top: 30px; }
-    .project { margin-bottom: 20px; }
+    :root{
+      --bg:#f9f9f9;
+      --text:#333;
+      --accent:#0066cc;
+      --card:#ffffff;
+      --muted:#666;
+      --ring:#cfe7ff;
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family: Arial, sans-serif;
+      margin:0;
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.6;
+    }
+    header{
+      padding:48px 24px 20px;
+      text-align:center;
+      background: linear-gradient(180deg, #ffffff, #f4f9ff);
+      border-bottom:1px solid #eaeaea;
+    }
+    h1{ color: var(--accent); margin:0 0 8px; font-size: clamp(1.6rem, 2.8vw, 2.4rem); }
+    header p{ margin:0; color: var(--muted); }
+
+    /* Navigation */
+    nav{
+      display:flex; justify-content:center; gap:18px; flex-wrap:wrap;
+      padding:10px 16px 22px;
+    }
+    nav a{
+      color: var(--accent); text-decoration:none; padding:6px 10px; border-radius:10px;
+    }
+    nav a:hover{ background: var(--ring); }
+
+    main{ max-width:1100px; margin: 0 auto; padding: 28px 20px 60px; }
+
+    /* Cards & helpers */
+    .card{
+      background: var(--card);
+      border:1px solid #eee;
+      border-radius:14px;
+      padding:18px;
+      box-shadow: 0 1px 2px rgba(0,0,0,.03);
+    }
+    .card h3{
+      margin:0 0 10px; color: var(--accent); font-size:1.05rem;
+    }
+    .subtle{ color: var(--muted); font-size:.95rem; text-align: justify; }
+    ul.clean{ margin:8px 0 0 18px; padding:0; }
+    ul.tags{
+      list-style:none; display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 0; padding:0;
+    }
+    .tag{
+      border:1px solid #e0e0e0; padding:6px 10px; border-radius:999px; font-size:.9rem;
+      background:#fff;
+    }
+
+    /* Three-section grid (Education, Experience, Skills) */
+    .info-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+      margin-top: 10px;
+    }
+
+    /* Projects */
+    .projects{ margin-top: 34px; }
+    .projects h2{ color: var(--accent); margin-bottom: 12px; }
+    .project{
+      background: var(--card);
+      border:1px solid #eee;
+      border-radius:14px;
+      padding:18px;
+      margin-bottom:16px;
+    }
+    .project h3{ margin:0 0 6px; }
+    .project p{ margin:0; color: var(--muted); }
+
+    footer{
+      text-align:center; padding:28px 16px; border-top:1px solid #eee; background:#fff;
+    }
+    footer a{ color: var(--accent); }
+
+    /* Responsive */
+    @media (max-width: 1000px){
+      .info-grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px){
+      .info-grid{ grid-template-columns: 1fr; }
+      main{ padding: 22px 16px 50px; }
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Hello, I'm Zubair Ahmed Shaik</h1>
-    <p>Welcome to my portfolio website hosted on GitHub Pages.</p>
+    <p>Welcome to my portfolio website.</p>
+    <nav aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <section class="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>Project 1</h3>
-      <p>Short description of project 1.</p>
-    </div>
-    <div class="project">
-      <h3>Project 2</h3>
-      <p>Short description of project 2.</p>
-    </div>
-  </section>
+  <main>
+    <!-- About Me separate (full width) -->
+    <section id="about" class="card" style="margin-bottom:24px;">
+      <h3>About Me</h3>
+      <p class="subtle">
+        I am a Data Science graduate with a strong foundation in software engineering and embedded systems.
+        My professional journey spans roles at AMD and Mirafra Technologies, where I contributed to large-scale
+        software development and system-level optimization.
+      </p>
+      <p class="subtle">
+        With hands-on experience in Python, C/C++, computer vision, and AI frameworks, I enjoy building intelligent,
+        user-focused solutions that bridge hardware and software. I am particularly passionate about applying machine learning
+        and computer vision to solve real-world problems in health, AR/VR, and automation.
+      </p>
+    </section>
 
-  <footer>
-    <p><a href="mailto:zubairahmedshaik098@gmail.com">Contact me</a></p>
+    <!-- Education, Experience, Skills in parallel -->
+    <section class="info-grid" aria-label="Profile overview">
+      <article id="education" class="card">
+        <h3>Education</h3>
+        <ul class="clean">
+          <li><strong>MSc Data Science</strong> - University of Roehampton</li>
+          <li><strong>B.E (E.C.E)</strong> - Muffakhamjah College of Engineering (Osmania University)</li>
+        </ul>
+      </article>
+
+      <article id="experience" class="card">
+        <h3>Work Experience</h3>
+        <ul class="clean">
+          <li><strong>Software Engineer-2:</strong> AMD (Dec 2021 - Nov 2023)</li>
+          <li><strong>Software Engineer-1:</strong> Mirafra Technologies, Hyderabad (Nov 2019 - Dec 2021)</li>
+          <li><strong>Embedded Systems Intern:</strong> Kernal Masters, Hyderabad (Sep 2018 - Sep 2019)</li>
+        </ul>
+      </article>
+
+      <article id="skills" class="card">
+        <h3>Skills</h3>
+        <ul class="tags" aria-label="Skill tags">
+          <li class="tag">Python</li>
+          <li class="tag">PyTorch</li>
+          <li class="tag">OpenCV</li>
+          <li class="tag">MediaPipe</li>
+          <li class="tag">Flask</li>
+          <li class="tag">SQLite</li>
+          <li class="tag">Git & GitHub</li>
+          <li class="tag">Streamlit</li>
+          <li class="tag">Unity/Vuforia</li>
+          <li class="tag">LangChain & LangGraph</li>
+          <li class="tag">C & C++</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Projects list -->
+    <section id="projects" class="projects" aria-label="Projects">
+      <h2>Projects</h2>
+
+      <div class="project">
+        <h3>Project 1 — AI Fitness Trainer</h3>
+        <p>
+          Real-time pose estimation and feedback using MediaPipe + Flask, with session logging and dashboards.
+        </p>
+      </div>
+
+      <div class="project">
+        <h3>Project 2 — AR Interactive Menu</h3>
+        <p>
+          Unity + Vuforia based AR app for 3D food visualization and ingredient-level customization.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <p>
+      <a href="mailto:zubairahmedshaik098@gmail.com">Contact me</a>
+      •
+      <a href="https://github.com/ZubairAhmed098" target="_blank" rel="noopener">GitHub</a>
+    </p>
   </footer>
 </body>
 </html>
